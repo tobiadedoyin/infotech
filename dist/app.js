@@ -5,7 +5,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
-app.get("/", (req, res) => {
-    res.send("welcome again");
+app.use(express_1.default.json());
+app.use(express_1.default.urlencoded({ extended: true }));
+app.post("/post", (req, res) => {
+    res.status(201).json({ data: req.body });
+});
+app.get("/:id/:name", (req, res) => {
+    res.send({ message: "welcome again", Id: req.params.id, name: req.params.name });
 });
 exports.default = app;

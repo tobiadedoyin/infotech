@@ -16,6 +16,7 @@
   },
   "scripts": {
     "build": "tsc --watch",
-    "start": "nodemon ./dist/server.js"
+    "dev": "nodemon ./dist/server.js",
+    "start": "node  ./dist/server.js"
   }
 }
